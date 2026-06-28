@@ -329,8 +329,10 @@ pre {
 
 table {
   width: 100%;
+  max-width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
+  min-width: 0;
 }
 
 .table-wrap th,
@@ -338,22 +340,6 @@ table {
   white-space: normal;
   word-break: break-word;
   overflow-wrap: anywhere;
-}
-
-.table-wrap {
-  overflow-x: auto;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: var(--paper);
-  box-shadow: var(--shadow);
-}
-
-table {
-  width: 100%;
-  max-width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-  min-width: 0;
 }
 
 .small-table table {
@@ -450,4 +436,64 @@ tr:last-child td {
   .summary-card {
     box-shadow: none;
   }
+}
+
+.issue-reasons {
+  margin-top: 24px;
+}
+
+.gantt-table th,
+.gantt-table td {
+  text-align: center;
+}
+
+.gantt-table th:first-child,
+.gantt-table td:first-child {
+  text-align: left;
+  width: 34%;
+}
+
+.gantt-active {
+  color: var(--accent-dark);
+  font-weight: 900;
+  background: var(--success);
+}
+
+.final-check-list .check-item {
+  background: #fffaf3;
+}
+
+.issue-table th,
+.issue-table td {
+  font-size: 14px;
+}
+
+.issue-table th:nth-child(1),
+.issue-table td:nth-child(1) {
+  width: 10%;
+}
+
+.issue-table th:nth-child(2),
+.issue-table td:nth-child(2) {
+  width: 12%;
+}
+
+.issue-table th:nth-child(3),
+.issue-table td:nth-child(3) {
+  width: 26%;
+}
+
+.issue-table th:nth-child(4),
+.issue-table td:nth-child(4) {
+  width: 26%;
+}
+
+.issue-table th:nth-child(5),
+.issue-table td:nth-child(5) {
+  width: 12%;
+}
+
+.issue-table th:nth-child(6),
+.issue-table td:nth-child(6) {
+  width: 14%;
 }

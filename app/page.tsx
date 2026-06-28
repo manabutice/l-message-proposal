@@ -102,7 +102,7 @@ const solutionCards = [
       "予約や問い合わせにつながる完成度を確認できる",
       "作成者目線だけでなく利用者目線で改善できる"
     ],
-    estimate: "6〜10人日",
+    estimate: "5〜8人日",
     basis:
       "プレビュー画面の作成と、完成度スコアの判定条件が必要になるため、他の改善案より工数は大きくなります。どの項目に何点を付けるかというスコア基準を決める必要があります。",
     feasibility: "中程度"
@@ -143,8 +143,8 @@ const estimateRows = [
   },
   {
     name: "お客様目線完成度スコア付きプレビュー",
-    estimate: "6〜10人日",
-    basis: "プレビュー表示とスコア判定条件の作成が必要なため"
+    estimate: "5〜8人日",
+    basis: "リッチメニュー画像、ボタン、タップ後の動作を簡易プレビュー表示する必要があるため"
   }
 ];
 
@@ -167,6 +167,84 @@ const workTimeRows = [
   ["Webページ実装", "2時間"],
   ["noindex・Basic認証設定", "1時間"],
   ["動作確認・修正", "0.5時間"]
+];
+
+const issueRows = [
+  {
+    id: "Issue 1",
+    category: "操作導線",
+    problem: "リッチメニュー、予約フォーム、自動返信など複数の設定画面を行き来するため、現在地や進行度が分かりにくい。",
+    improvement: "進行度つき現在地ナビゲーションを追加し、今どの作業をしているか、次に何をすべきかを表示する。",
+    estimate: "4〜6人日",
+    reason: "既存の設定状態を読み取り、完了・未完了を判定する必要があるため。大規模な新機能ではないが、完了判定の定義とUI設計が必要。",
+    priority: "高"
+  },
+  {
+    id: "Issue 2",
+    category: "目的確認",
+    problem: "細かい設定に集中すると、その作業が予約や問い合わせにつながっているかを確認しにくい。",
+    improvement: "目的確認つきチェックリストを追加し、各作業が何のために必要なのかを表示する。",
+    estimate: "3〜5人日",
+    reason: "チェック項目と目的文を追加するUI改善が中心。自動判定できる項目と、ユーザー自身が確認する項目を分ける必要があるため。",
+    priority: "中"
+  },
+  {
+    id: "Issue 3",
+    category: "お客様目線",
+    problem: "管理画面上では、実際にお客様がLINEで見たときに分かりやすいか確認しにくい。",
+    improvement: "お客様目線プレビューを追加し、ボタン名、タップ後の案内、予約フォームまでの導線を確認できるようにする。",
+    estimate: "5〜8人日",
+    reason: "リッチメニュー画像、ボタン、タップ後の動作を簡易プレビュー表示する必要があるため。LINEアプリ完全再現ではなく、簡易プレビューから始める想定。",
+    priority: "中"
+  }
+];
+
+const ganttRows = [
+  {
+    task: "L Message操作確認",
+    days: ["●", "", "", "", "", ""]
+  },
+  {
+    task: "Issue整理",
+    days: ["●", "●", "", "", "", ""]
+  },
+  {
+    task: "改善案・工数整理",
+    days: ["●", "●", "", "", "", ""]
+  },
+  {
+    task: "Webページ実装",
+    days: ["", "●", "●", "", "", ""]
+  },
+  {
+    task: "表示確認・修正",
+    days: ["", "●", "●", "●", "", ""]
+  },
+  {
+    task: "Basic認証・noindex確認",
+    days: ["", "", "●", "●", "", ""]
+  },
+  {
+    task: "Vercel公開",
+    days: ["", "", "", "●", "●", ""]
+  },
+  {
+    task: "最終確認・提出",
+    days: ["", "", "", "", "●", "●"]
+  }
+];
+
+const finalCheckItems = [
+  "公開URLが開ける",
+  "Basic認証が表示される",
+  "missiona / kadai でログインできる",
+  "ページ全体が正しく表示される",
+  "スマホ幅でも文字や表が切れない",
+  "表が画面外にはみ出さない",
+  "noindex設定が入っている",
+  "修正後に他の表示が崩れていない",
+  "課題と改善案の対応関係が分かる",
+  "工数見積もりと理由が書かれている"
 ];
 
 function SectionTitle({ label, title, description }: { label: string; title: string; description?: string }) {
@@ -396,8 +474,106 @@ export default function Home() {
       </section>
 
       <section className="container">
-        <SectionTitle label="10" title="本制作物の作成時間" />
-        <p className="lead-text">本制作物の作成には、7日間、1日あたり約2時間、合計約14時間を予定しています。実際の提出時には、作業開始から完了までの実測時間を記載します。</p>
+        <SectionTitle
+          label="10"
+          title="Issue一覧"
+          description="L Messageを実際に操作して感じた課題をIssueとして整理し、それぞれに改善案・工数・優先度を設定しました。"
+        />
+        <div className="table-wrap issue-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Issue</th>
+                <th>分類</th>
+                <th>現状の問題</th>
+                <th>改善案</th>
+                <th>工数</th>
+                <th>優先度</th>
+              </tr>
+            </thead>
+            <tbody>
+              {issueRows.map((row) => (
+                <tr key={row.id}>
+                  <td>{row.id}</td>
+                  <td>{row.category}</td>
+                  <td>{row.problem}</td>
+                  <td>{row.improvement}</td>
+                  <td>{row.estimate}</td>
+                  <td>{row.priority}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="cards three issue-reasons">
+          {issueRows.map((row) => (
+            <article className="card" key={`${row.id}-reason`}>
+              <p className="card-number">{row.id}</p>
+              <h3>{row.category}</h3>
+              <div className="note">
+                <strong>工数が必要な理由</strong>
+                <p>{row.reason}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="container">
+        <SectionTitle
+          label="11"
+          title="実装スケジュール"
+          description="提出期限に間に合うように、作業内容を日付ごとに整理しました。"
+        />
+        <div className="table-wrap gantt-table">
+          <table>
+            <thead>
+              <tr>
+                <th>作業</th>
+                <th>6/27</th>
+                <th>6/28</th>
+                <th>6/29</th>
+                <th>6/30</th>
+                <th>7/1</th>
+                <th>7/2</th>
+              </tr>
+            </thead>
+            <tbody>
+              {ganttRows.map((row) => (
+                <tr key={row.task}>
+                  <td>{row.task}</td>
+                  {row.days.map((day, index) => (
+                    <td key={`${row.task}-${index}`} className={day ? "gantt-active" : ""}>
+                      {day}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section className="container">
+        <SectionTitle
+          label="12"
+          title="公開前チェックリスト"
+          description="期待した通りの結果になっていること、修正による表示崩れが発生していないことを確認します。"
+        />
+        <div className="check-list final-check-list">
+          {finalCheckItems.map((item) => (
+            <div key={item} className="check-item">
+              □ {item}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="container">
+        <SectionTitle label="13" title="本制作物の作成時間" />
+        <p className="lead-text">
+          本制作物の作成には、7日間、1日あたり約2時間、合計約14時間を予定しています。
+          実際の提出時には、作業開始から完了までの実測時間を記載します。
+        </p>
         <div className="table-wrap small-table">
           <table>
             <thead>
@@ -420,7 +596,7 @@ export default function Home() {
 
       <section className="summary">
         <div className="container summary-card">
-          <SectionTitle label="11" title="まとめ" />
+          <SectionTitle label="14" title="まとめ" />
           <p>
             L Messageは、LINE公式アカウントを効率よく運用するための便利なサービスです。しかし、機能が多いからこそ、初めて使う人は作業中に現在地を見失いやすく、設定内容が目的に合っているか、お客様から見て分かりやすいかを判断しにくい可能性があります。
           </p>
