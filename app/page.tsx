@@ -153,39 +153,155 @@ export default function Home() {
 
       <section>
         <h2>6. ガントチャート</h2>
-        <div className="tableWrap">
-          <table>
-            <thead>
-              <tr>
-                <th>時間</th>
-                <th>作業内容</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>9:00〜9:30</td><td>仕様確認</td></tr>
-              <tr><td>9:30〜10:00</td><td>Issue一覧作成</td></tr>
-              <tr><td>10:00〜10:30</td><td>優先順位・確認表作成</td></tr>
-              <tr><td>10:30〜11:00</td><td>休憩</td></tr>
-              <tr><td>11:00〜12:00</td><td>Webページ本文作成</td></tr>
-              <tr><td>13:00〜16:00</td><td>Webページ実装</td></tr>
-              <tr><td>16:00〜17:00</td><td>noindex・Basic認証設定</td></tr>
-              <tr><td>17:00〜19:00</td><td>GitHub・Vercel公開</td></tr>
-              <tr><td>19:00〜22:00</td><td>最終確認・修正・提出準備</td></tr>
-            </tbody>
-          </table>
+        <p>
+          今日1日で提出条件を満たすため、作業を時間軸に沿って整理しました。
+          10:30〜11:00は休憩時間のため、作業バーは表示していません。
+        </p>
+
+        <div className="gantt">
+          <div className="ganttHeader">
+            <div className="taskName">作業内容</div>
+            <div>9:00</div>
+            <div>9:30</div>
+            <div>10:00</div>
+            <div>10:30</div>
+            <div>11:00</div>
+            <div>11:30</div>
+            <div>12:00</div>
+            <div>13:00</div>
+            <div>14:00</div>
+            <div>15:00</div>
+            <div>16:00</div>
+            <div>17:00</div>
+            <div>18:00</div>
+            <div>19:00</div>
+            <div>20:00</div>
+            <div>21:00</div>
+            <div>22:00</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">仕様確認</div>
+            <div className="bar bar1">9:00〜9:30</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">Issue一覧作成</div>
+            <div className="bar bar2">9:30〜10:00</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">優先順位・確認表作成</div>
+            <div className="bar bar3">10:00〜10:30</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">Webページ本文作成</div>
+            <div className="bar bar4">11:00〜12:00</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">Webページ実装</div>
+            <div className="bar bar5">13:00〜16:00</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">noindex・Basic認証設定</div>
+            <div className="bar bar6">16:00〜17:00</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">GitHub・Vercel公開</div>
+            <div className="bar bar7">17:00〜19:00</div>
+          </div>
+
+          <div className="ganttRow">
+            <div className="taskName">最終確認・修正・提出準備</div>
+            <div className="bar bar8">19:00〜22:00</div>
+          </div>
         </div>
       </section>
 
       <section>
         <h2>7. 公開前チェックリスト</h2>
-        <ul>
-          <li>noindexが設定されているか</li>
-          <li>Basic認証が設定されているか</li>
-          <li>ユーザー名 missiona でログインできるか</li>
-          <li>パスワード kadai でログインできるか</li>
-          <li>PCとスマホで表示が崩れていないか</li>
-          <li>誤字脱字がないか</li>
-        </ul>
+        <p>
+          Vercelで公開する前に、提出条件と表示内容を確認するためのチェックリストを作成しました。
+        </p>
+
+        <div className="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>確認項目</th>
+                <th>確認内容</th>
+                <th>結果</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>noindex</td>
+                <td>検索結果に表示されない設定になっているか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Basic認証</td>
+                <td>認証画面が表示されるか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>ID/PW</td>
+                <td>missiona / kadai でログインできるか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>タイトル</td>
+                <td>ページタイトルが表示されているか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Issue</td>
+                <td>Issueが3点に整理されているか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>改善案</td>
+                <td>各Issueに改善案が書かれているか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>工数</td>
+                <td>想定工数と理由が書かれているか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>PC表示</td>
+                <td>PC画面で表示が崩れていないか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>スマホ表示</td>
+                <td>スマホ幅でも読みやすいか</td>
+                <td>未確認</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>誤字脱字</td>
+                <td>提出前に文章の誤字がないか</td>
+                <td>未確認</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section>
