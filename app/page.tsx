@@ -243,61 +243,61 @@ export default function Home() {
                 <td>1</td>
                 <td>noindex</td>
                 <td>検索結果に表示されない設定になっているか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>Basic認証</td>
                 <td>認証画面が表示されるか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>3</td>
                 <td>ID/PW</td>
                 <td>missiona / kadai でログインできるか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>4</td>
                 <td>タイトル</td>
                 <td>ページタイトルが表示されているか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>5</td>
                 <td>Issue</td>
                 <td>Issueが3点に整理されているか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>6</td>
                 <td>改善案</td>
                 <td>各Issueに改善案が書かれているか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>7</td>
                 <td>工数</td>
                 <td>想定工数と理由が書かれているか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>8</td>
                 <td>PC表示</td>
                 <td>PC画面で表示が崩れていないか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>9</td>
                 <td>スマホ表示</td>
                 <td>スマホ幅でも読みやすいか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
               <tr>
                 <td>10</td>
                 <td>誤字脱字</td>
                 <td>提出前に文章の誤字がないか</td>
-                <td>未確認</td>
+                <td>確認済</td>
               </tr>
             </tbody>
           </table>
